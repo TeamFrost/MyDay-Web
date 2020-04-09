@@ -16,6 +16,8 @@ conn.connect(function (err) {
     console.log(conn);
 });
 
+require('./routes/getJournalData')(app);
+
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
 });

@@ -15,3 +15,48 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#style-1::-webkit-scrollbar {
+	width: 5px;
+}
+#style-1::-webkit-scrollbar-track {
+    background: transparent;
+}
+#style-1::-webkit-scrollbar-thumb {
+    background-color: #508FF4;
+    border-right: none;
+    border-left: none;
+}
+#style-1::-webkit-scrollbar-thumb:window-inactive {
+	background: #508FF4;
+}
+#style-1::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 50px;
+}
+#style-1::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 50px;
+}
+
+.hrGrey {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #EBF2F7;
+}
+
+.multicolor-bar {
+	margin: 20px 5%;
+}
+.multicolor-bar .bars .bar {
+	float: left;
+	height: 6px;
+}
+.multicolor-bar .bars div.bar:first-of-type {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.multicolor-bar .bars div.bar:last-of-type {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}

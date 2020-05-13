@@ -22,10 +22,10 @@ import Logo from '../img/logo.png';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 350,
-    height: 650,
+    height: 680,
     margin: 80,
     borderRadius: 20,
-    paddingBottom: 20
+  
 },
   large: {
     width: theme.spacing(7),
@@ -34,30 +34,37 @@ const useStyles = makeStyles((theme) => ({
   },
   rootname: {
     width: '100%',
-    maxWidth: 350,
+	maxWidth: 350,
     height: 80,
-    //backgroundColor: theme.palette.background.paper,
   },
   rootmenu: {
-    width: '100%',
-    maxWidth: 300,
+    width: '80%',
+	maxWidth: 350,
+	maxHeight: 350,
     marginLeft: 25,
-    backgroundColor: theme.palette.background.paper,
+    //backgroundColor: theme.palette.background.paper,
   },
   rooticon: {
-    backgroundColor: theme.palette.background.paper,
+	// backgroundColor: theme.palette.background.paper,
+	borderRadius: 100,
+	maxHeight: 50,
     '&:hover': {
       color: '#508ff4'
-    }
-    
-  }
-}));
+	}
+  },
+  itemspecial:{
+	borderRadius: 100,
+	maxHeight: 50,
+	'&:hover': {
+		color: '#ffb295'
+	}
+}}));
 
 export default function Menu() {
   const classes = useStyles();
 
   return (
-      <Paper className={classes.root} elevation={10}>
+	  <Paper className={classes.root} elevation={10}>
                       
             <List className={classes.rootname}>
               <ListItem>
@@ -71,7 +78,7 @@ export default function Menu() {
             <hr className={'hrGrey'}/>
 
             <div className={classes.rootmenu}>
-              <List component="nav" aria-label="menu">
+              <List>
                 <ListItem button className={classes.rooticon}>
                   <ListItemIcon>
                     <DashboardTwoToneIcon style={{ color: '#508ff4' }}/>
@@ -108,7 +115,7 @@ export default function Menu() {
                   </ListItemIcon>
                   <ListItemText primary="Profile Settings" />
                 </ListItem>
-                <ListItem button className={classes.rooticon}>
+                <ListItem button className={classes.itemspecial}>
                   <ListItemIcon>
                     <GradeTwoToneIcon style={{ color: '#ffb295' }}/>
                   </ListItemIcon>
@@ -125,7 +132,7 @@ export default function Menu() {
 
 
             <div className={classes.rootmenu}>
-            <List component="nav" aria-label="logout">
+            <List>
               <ListItem button className={classes.rooticon}>
                   <ListItemIcon>
                     <ExitToAppTwoToneIcon style={{ color: '#508ff4'}}/>

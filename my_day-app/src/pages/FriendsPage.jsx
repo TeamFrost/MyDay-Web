@@ -6,9 +6,9 @@ import Menu from '../components/Menu';
 export default function FriendsPage() {
 
     return (
-        <div className="App" style={{display: 'flex', flexWrap: 'wrap'}}>
-            <Menu/>
-            <Box mt={5}>
+        <div className="App" style={{display: 'flex', flexWrap: 'wrap', width: '100%'}}>
+            {/* <Menu/> */}
+            <Box mt={5} style={{ width: '100%'}}>
                 <Copyright />
             </Box> 
         </div>

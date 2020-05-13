@@ -4,6 +4,7 @@ import {Paper} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
 import DayJournal from "./DayJournal";
 
+
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
@@ -11,12 +12,14 @@ const useStyles = makeStyles(theme => ({
         '& > *': {
             margin: theme.spacing(1),
             width: theme.spacing(16),
-            height: theme.spacing(16),
+            height: theme.spacing(8),
         },
     },
     paper: {
-        width: 605,
-        height: 797,
+        width: 550,
+        height: 680,
+        margin: 80,
+        marginLeft: 20,
         overflow: 'auto',
         textAlign: 'left',
         borderRadius: 15
@@ -52,7 +55,6 @@ export default function Journal() {
         <div className={classes.root}>
             <Paper id={"style-1"} className={classes.paper} elevation={10}>
                 <h2 className={classes.titleH2}>Journal</h2>
-                <br/>
                 <hr className={'hrGrey'}/>
                 {
                     data.map((val, key) => {

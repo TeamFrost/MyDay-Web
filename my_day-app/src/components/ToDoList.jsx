@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
+import planet from '../img/planet.png';
 import {
     Button,
     Paper,
@@ -35,11 +36,15 @@ const useStyle = makeStyles(theme => ({
         }
     },
     paper: {
-        width: 538,
-        height: 500,
+        width: 550,
+        height: 450,
         overflow: 'auto',
         textAlign: 'left',
-        borderRadius: 15
+        borderRadius: 20,
+        margin: 80,
+        marginLeft: 20,
+        marginBottom: 5,
+        marginRight: 5,
     },
     titleH2: {
         fontSize: 25,
@@ -53,12 +58,19 @@ const useStyle = makeStyles(theme => ({
         marginTop: 20
     },
     fab: {
-        position: 'absolute',
-        float: 'left',
-        top: 420,
-        left: 1080,
-        backgroundColor: '#508FF4'
-    }
+        position: 'relative',
+        width: 60,
+        height: 60,
+        top: '62%',
+        left: '85%',
+    },
+    photo: {
+        position: 'relative',
+        width: 165,
+        height: 135,
+        top: '70%',
+        right: '50%',
+    },
 }));
 
 export default function ToDoList() {
@@ -184,10 +196,11 @@ export default function ToDoList() {
                         </FormGroup>
                     );
                 }, checked)}
-
-                <Fab color="primary" aria-label="add" className={classes.fab}>
-                    <AddIcon/>
-                </Fab>
+                <div className={classes.fab}>
+                    <Fab color="primary" aria-label="add" style={{backgroundColor: '#508FF4'}}>
+                        <AddIcon/>
+                    </Fab>
+                </div>
             </Paper>
 
             <Dialog
@@ -214,6 +227,9 @@ export default function ToDoList() {
                     </Button>
                 </DialogActions>
             </Dialog>
+            
+            <img src={planet} className={classes.photo} />
+            
         </div>
     )
 }

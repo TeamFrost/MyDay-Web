@@ -12,6 +12,8 @@ import CalendarPage from './pages/CalendarPage';
 import JournalPage from './pages/JournalPage';
 import FriendsPage from './pages/FriendsPage';
 import Logout from './pages/Logout';
+import Menu from './components/Menu';
+
 
 function App() {
     const history = createBrowserHistory();
@@ -32,7 +34,7 @@ function App() {
                 <Private path='/forgotpassword' component={ForgotPassword} />
                 <Private path='/dayoverview' component={LandingPage} />
                 <Private path='/calendar' component={CalendarPage} />
-                <Private path='/journal' component={JournalPage} />
+                <Route path='/journal' component={JournalPage} />
                 <Route path='/friends' component={FriendsPage} />
                 <Private path='/logout' component={Logout} />
             </Router>

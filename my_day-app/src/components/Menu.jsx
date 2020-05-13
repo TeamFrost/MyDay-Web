@@ -4,12 +4,26 @@ import {makeStyles} from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Default from '../img/default.png';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import DashboardTwoToneIcon from '@material-ui/icons/DashboardTwoTone';
+import CalendarTodayTwoToneIcon from '@material-ui/icons/CalendarTodayTwoTone';
+import BookTwoToneIcon from '@material-ui/icons/BookTwoTone';
+import PieChartTwoToneIcon from '@material-ui/icons/PieChartTwoTone';
+import PeopleAltTwoToneIcon from '@material-ui/icons/PeopleAltTwoTone';
+import SettingsTwoToneIcon from '@material-ui/icons/SettingsTwoTone';
+import GradeTwoToneIcon from '@material-ui/icons/GradeTwoTone';
+import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
+import Logo from '../img/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 350,
-    height: 600,
-    margin: 100,
+    height: 650,
+    margin: 80,
     borderRadius: 20,
     paddingBottom: 20
 },
@@ -18,6 +32,25 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(7),
     margin: 20,
   },
+  rootname: {
+    width: '100%',
+    maxWidth: 350,
+    height: 80,
+    //backgroundColor: theme.palette.background.paper,
+  },
+  rootmenu: {
+    width: '100%',
+    maxWidth: 300,
+    marginLeft: 25,
+    backgroundColor: theme.palette.background.paper,
+  },
+  rooticon: {
+    backgroundColor: theme.palette.background.paper,
+    '&:hover': {
+      color: '#508ff4'
+    }
+    
+  }
 }));
 
 export default function Menu() {
@@ -25,24 +58,82 @@ export default function Menu() {
 
   return (
       <Paper className={classes.root} elevation={10}>
-          <div>
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid item>
-                <Avatar alt="user" src={Default} className={classes.large} />
-              </Grid>
-              <Grid item xs alignItems='left'>
-                <Typography>Nume</Typography>
-              </Grid>
-            </Grid>
-            
-            
-          </div>
-          <hr className={'hrGrey'}/>
-          <div>
-
-          </div>
-
+                      
+            <List className={classes.rootname}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar alt="user" src={Default} className={classes.large} />
+                </ListItemAvatar>
+               <ListItemText disableTypography primary={<Typography variant="h6" style={{ fontWeight: 'bold' }}>Raul Licaret</Typography>}/>
+              </ListItem>
+            </List>
           
+            <hr className={'hrGrey'}/>
+
+            <div className={classes.rootmenu}>
+              <List component="nav" aria-label="menu">
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <DashboardTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Day Overview" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <CalendarTodayTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Calendar" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <BookTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Journal" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <PieChartTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Statisics" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <PeopleAltTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Friends" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <SettingsTwoToneIcon style={{ color: '#508ff4' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Profile Settings" />
+                </ListItem>
+                <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <GradeTwoToneIcon style={{ color: '#ffb295' }}/>
+                  </ListItemIcon>
+                  <ListItemText primary="Get Premium" />
+                </ListItem>
+              </List>
+            </div> 
+           
+            <div>
+              <img src={Logo} alt={"logo"} style={{width: '25%', height: '25%'}}/>
+            </div>  
+
+            <hr className={'hrGrey'}/>
+
+
+            <div className={classes.rootmenu}>
+            <List component="nav" aria-label="logout">
+              <ListItem button className={classes.rooticon}>
+                  <ListItemIcon>
+                    <ExitToAppTwoToneIcon style={{ color: '#508ff4'}}/>
+                  </ListItemIcon>
+               <ListItemText primary="Logout"/>
+              </ListItem>
+            </List>
+            </div>
       </Paper>
   );
 }

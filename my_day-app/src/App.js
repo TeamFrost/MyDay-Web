@@ -33,7 +33,7 @@ function App() {
                 <Private path='/dayoverview' component={LandingPage} />
                 <Private path='/calendar' component={CalendarPage} />
                 <Private path='/journal' component={JournalPage} />
-                <Private path='/friends' component={FriendsPage} />
+                <Route path='/friends' component={FriendsPage} />
                 <Private path='/logout' component={Logout} />
             </Router>
             

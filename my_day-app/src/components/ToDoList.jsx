@@ -11,7 +11,8 @@ import {
     Dialog,
     DialogActions,
     DialogContent,
-    DialogContentText
+    DialogContentText,
+    Grid
 } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 
@@ -37,7 +38,7 @@ const useStyle = makeStyles(theme => ({
     },
     paper: {
         width: 550,
-        height: 450,
+        height: 500,
         overflow: 'auto',
         textAlign: 'left',
         borderRadius: 20,
@@ -56,13 +57,6 @@ const useStyle = makeStyles(theme => ({
     },
     fromGroup: {
         marginTop: 20
-    },
-    fab: {
-        position: 'relative',
-        width: 60,
-        height: 60,
-        top: '62%',
-        left: '85%',
     },
     photo: {
         position: 'relative',
@@ -173,7 +167,16 @@ export default function ToDoList() {
     return (
         <div className={classes.root}>
             <Paper className={classes.paper} elevation={10}>
-                <h2 className={classes.titleH2}>To do list</h2>
+                <Grid container>
+                    <Grid xs={10}>
+                         <h2 className={classes.titleH2}>To do list</h2>
+                     </Grid>
+                     <Grid xs={1}>
+                         <Fab color="primary" aria-label="add" style={{backgroundColor: '#508FF4', marginTop: 13,}}>
+                             <AddIcon/>
+                         </Fab>
+                    </Grid>
+                 </Grid>
                 <hr className={'hrGrey'}/>
 
                 {Object.keys(checked).map((val, key) => {
@@ -196,11 +199,6 @@ export default function ToDoList() {
                         </FormGroup>
                     );
                 }, checked)}
-                <div className={classes.fab}>
-                    <Fab color="primary" aria-label="add" style={{backgroundColor: '#508FF4'}}>
-                        <AddIcon/>
-                    </Fab>
-                </div>
             </Paper>
 
             <Dialog

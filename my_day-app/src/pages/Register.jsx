@@ -18,10 +18,19 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Logo from "../img/logo.png";
 import Copyright from "../helpers/Copyright";
+import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        width: 450,
+        height: 855,
+        borderRadius: 20,
+        marginLeft: 750,
+        marginTop: 100,
+        paddingTop: 10,
+    },
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(2),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -139,6 +148,8 @@ export default function SignUp() {
     }
 
     return (
+        <div>
+        <Paper className={classes.root} elevation={10}>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -545,5 +556,7 @@ export default function SignUp() {
                 }}
             />}
         </Container>
+        </Paper>
+        </div>
     );
 }

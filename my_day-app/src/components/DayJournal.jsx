@@ -1,13 +1,25 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import EditIcon from '@material-ui/icons/Edit';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import IconButton from '@material-ui/core/IconButton';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@material-ui/icons/Star';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
     root: {
-      margin: 0
+      margin: 0,
     },
     text: {
+        maxHeight: 175,
         paddingLeft: 20,
         fontSize: 20
+    },
+    buttonIcon: {
+        marginLeft: 390,
+        marginRight: 1,
     },
 }));
 
@@ -31,8 +43,17 @@ export default function Journal(props) {
                     { ' #' + entry + ' - ' + daysOfTheWeek[weekDay] + ', ' + day + ' ' + months[monthIndex] }
                 </span>
             </h2>
-            <p className={classes.text} style={{fontSize: 15}}>{description}</p>
-            <br/><br/><br/><br/><br/>
+            <p className={classes.text} style={{fontSize: '1.4rem'}}>{description}</p>
+            <br/><br/>
+            <FormControlLabel className={classes.buttonIcon}
+                control={<Checkbox icon={<StarBorderIcon style={{ color: "#ffb295" }} />} checkedIcon={<StarIcon style={{ color: "#ffb295" }}/>}  />}
+             />
+            <IconButton>
+                <EditIcon style={{ color: "rgb(76, 137, 233)" }}/>
+            </IconButton>
+            <IconButton>
+                <HighlightOffIcon style={{ color: "rgb(208, 20, 20)" }}/>
+            </IconButton>
             <hr className={'hrGrey'}/>
         </div>
     )

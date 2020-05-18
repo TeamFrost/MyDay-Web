@@ -14,17 +14,26 @@ import Logo from '../img/logo.png';
 import Copyright from "../helpers/Copyright";
 import { Redirect } from "react-router-dom";
 import { createBrowserHistory } from 'history';
+import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        width: 450,
+        height: 730,
+        borderRadius: 20,
+        marginLeft: 750,
+        marginTop: 100,
+        paddingTop: 10,
+    },
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(1),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
     form: {
         width: '100%',
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(2),
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
@@ -91,7 +100,9 @@ export default function Login() {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
+        <div>
+        <Paper className={classes.root} elevation={10}>
+        <Container component="main" maxWidth="xs" >
             {console.log(isRedirect)}
             {isRedirect && <Redirect
                 to={{
@@ -99,7 +110,7 @@ export default function Login() {
                 }}
             />}
             <CssBaseline/>
-            <div className={classes.paper}>
+            <div className={classes.paper} >
                 <img src={Logo} alt={"logo"} style={{width: '45%', height: '45%'}}/>
                 <br/>
                 <Typography component="h1" variant="h5">
@@ -161,5 +172,7 @@ export default function Login() {
                 <Copyright/>
             </Box>
         </Container>
+        </Paper>
+        </div>
     );
 }

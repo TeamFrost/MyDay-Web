@@ -86,6 +86,7 @@ export default function Calendar() {
     let keyDayCalendar = 0; // TODO: change
     let keyDiv = 0; // TODO: change
     return (
+        
         <Paper className={classes.root} elevation={10}>
             <div>
                 <h2 className={classes.calendarH2} align={'left'}>Calendar</h2>

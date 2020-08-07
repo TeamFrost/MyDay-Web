@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function MultiColorProgressBar(props) {
-    const {activities} = props;
+    const { activities } = props;
     const dateDiff = (d1, d2) => parseInt((d2.getTime() - d1.getTime()) / (60 * 1000)); // in minutes
     let arr = [];
     let sum = 0;
@@ -28,7 +28,7 @@ export default function MultiColorProgressBar(props) {
                     const width = (val.value * 100) / sum;
                     return (
                         <div key={key}>
-                            <div className="bar" style={{backgroundColor: val.color, width: width + '%'}}/>
+                            <div className="bar" style={{ backgroundColor: val.color, width: width + '%' }} />
                         </div>
                     )
                 })}

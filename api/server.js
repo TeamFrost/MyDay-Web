@@ -25,6 +25,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/users', require('./users/user.controller'));
+app.use('/journal', require('./journal/journal.controller'));
+app.use('/todo', require('./todo/todo.controller'));
+app.use('/calendar', require('./calendar/calendar.controller'));
+app.use('/dayoverview', require('./dayoverview/dayoverview.controller'));
 
 app.use(errorHandler);
 

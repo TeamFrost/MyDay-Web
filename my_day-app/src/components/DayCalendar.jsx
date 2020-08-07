@@ -1,6 +1,6 @@
 import React from 'react';
-import {Paper} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import MultiColorProgressBar from './MultiColorProgressBar';
 
 const useStyles = makeStyles(theme => ({
@@ -29,13 +29,23 @@ const useStyles = makeStyles(theme => ({
         fontSize: 18,
         textAlign: 'left',
         fontFamily: 'Roboto'
+    },
+    EMP: {
+        border: '3px solid #508FF4',
+        width: 137,
+        height: 92,
+        background: '#EBF2F7',
+        margin: 5,
     }
 }));
 
 export default function DayCalendar(props) {
     const classes = useStyles();
-    const {activities, dayOfWeek, dayOfMonth} = props;
+    const { activities, dayOfWeek, dayOfMonth } = props;
     let activitiesBar = [];
+    
+    var objToday = new Date();
+    var dd = parseInt(String(objToday.getDate()).padStart(2, '0'));
 
     if (activities) {
         activities.map((activity, key) => {
@@ -44,11 +54,12 @@ export default function DayCalendar(props) {
     }
 
     return (
-        <Paper className={classes.dayPaper}>
+        <Paper className={dayOfMonth === dd ? classes.EMP : classes.dayPaper}>
             <p className={classes.dayOfWeek}>{dayOfWeek}</p>
             <p className={classes.dayOfMonth}>{dayOfMonth}</p>
+
             {Array.isArray(activitiesBar) && activitiesBar.length ?
-                <MultiColorProgressBar activities={activitiesBar}/> : null}
+                <MultiColorProgressBar activities={activitiesBar} /> : null}
         </Paper>
     )
 }

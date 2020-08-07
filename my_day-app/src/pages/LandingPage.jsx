@@ -5,7 +5,7 @@ import TomorrowCard from '../components/TomorrowCard';
 import Copyright from '../helpers/Copyright';
 import Box from "@material-ui/core/Box";
 import Weather from '../components/Weather';
-import ShowStars from '../components/ShowStars';
+
 
 export default function LandingPage() {
     return (
@@ -13,8 +13,7 @@ export default function LandingPage() {
             <Menu />
             <TodayCard />
             <TomorrowCard />
-            <ShowStars />
-            {/* <Weather /> */}
+            <Weather />
             <Box style={{ width: '100%'}}>
                 <Copyright />
             </Box> 

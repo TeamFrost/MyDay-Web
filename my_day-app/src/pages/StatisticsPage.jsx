@@ -6,12 +6,12 @@ import Statistics from '../components/Statistics';
 
 export default function StatisticsPage() {
     return (
-        <div className="App" style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
-            <Menu />
-            <Statistics />
-            <Box style={{ width: '100%' }}>
+        <div className="App" style={{display: 'flex', flexWrap: 'wrap', width: '100%'}}>
+            <Menu/>
+            <Statistics/>
+            <Box style={{ width: '100%'}}>
                 <Copyright />
-            </Box>
+            </Box> 
         </div>
     );
 }

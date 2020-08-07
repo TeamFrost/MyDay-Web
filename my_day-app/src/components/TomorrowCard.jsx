@@ -10,6 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+<<<<<<< HEAD
 import Tomorrow from "../img/tomorrow.png";
 import { useState, useEffect } from "react";
 
@@ -23,6 +24,10 @@ var dd = String(objToday.getDate() + 1).padStart(2, '0');
 const curYear = objToday.getFullYear();
 const today = dayOfWeek + ', ' + dd + ' ' + curMonth + ' ' + curYear;
 
+=======
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Tomorrow from "../img/tomorrow.png";
+>>>>>>> 76088c93f9ff42bcb77a86afd68ad14f852c97f0
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +36,11 @@ const useStyles = makeStyles((theme) => ({
     margin: 80,
     marginLeft: 20,
     borderRadius: 20,
+<<<<<<< HEAD
    	// maxHeight: 730
+=======
+    maxHeight: 730
+>>>>>>> 76088c93f9ff42bcb77a86afd68ad14f852c97f0
   },
   media: {
     height: 100,
@@ -49,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: '#508FF4',
+<<<<<<< HEAD
   },gridContainer: {
 		display: 'grid',
 		gridTemplateColumns: '15% auto auto auto 15%',
@@ -109,6 +119,14 @@ export default function RecipeReviewCard() {
 
 		fetchData().catch((err) => console.log(err));
 	}, [refresh]);
+=======
+  },
+}));
+
+export default function RecipeReviewCard() {
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+>>>>>>> 76088c93f9ff42bcb77a86afd68ad14f852c97f0
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -117,6 +135,7 @@ export default function RecipeReviewCard() {
   return (
     <div style={{ display: 'block' }}>
       <Card className={classes.root} elevation={10}>
+<<<<<<< HEAD
         <CardHeader
 
           title="Tomorrow"
@@ -166,6 +185,51 @@ export default function RecipeReviewCard() {
 						}
 					</CardContent>
         </Collapse>
+=======
+      <CardHeader
+        
+        title="Tomorrow"
+        subheader="September 15, 2020"
+      />
+      <hr className={"hrGrey"} />
+      <CardMedia
+        className={classes.media}
+        image={Tomorrow}
+      />
+      <CardContent>
+        <Typography variant="h6" color="textSecondary" component="p">
+          Tomorrow's events
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>
+            Event 1
+          </Typography>
+          <Typography paragraph>
+            Event 2
+          </Typography>
+          <Typography paragraph>
+            Event 3
+          </Typography>
+          <Typography>
+            Event 4
+          </Typography>
+        </CardContent>
+      </Collapse>
+>>>>>>> 76088c93f9ff42bcb77a86afd68ad14f852c97f0
       </Card>
     </div>
   );

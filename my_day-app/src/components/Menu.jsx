@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
+import Default from "../img/default.png";
 import Typography from "@material-ui/core/Typography";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -18,25 +19,6 @@ import GradeTwoToneIcon from "@material-ui/icons/GradeTwoTone";
 import ExitToAppTwoToneIcon from "@material-ui/icons/ExitToAppTwoTone";
 import Logo from "../img/logo.png";
 import { Link } from "react-router-dom";
-import Default from "../img/default.png";
-import Red from '../img/icons/red.png';
-import Cyan from '../img/icons/cyan.png';
-import DarkBlue from '../img/icons/darkblue.png';
-import Purple from '../img/icons/purple.png';
-import Green from '../img/icons/green.png';
-import Yellow from '../img/icons/yellow.png';
-import Grey from '../img/icons/grey.png';
-
-const avatar = {
-    'default.png': Default,
-    'red.png': Red,
-    'cyan.png': Cyan,
-    'darkblue.png': DarkBlue,
-    'purple.png': Purple,
-    'green.png': Green,
-    'yellow.png': Yellow,
-    'grey.png': Grey,
-}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -83,10 +65,10 @@ export default function Menu() {
 	const classes = useStyles();
 	const firstName = JSON.parse(localStorage.getItem('loggedUser')).FirstName;
 	const lastName = JSON.parse(localStorage.getItem('loggedUser')).LastName;
-    const avatarString = JSON.parse(localStorage.getItem('loggedUser')).ProfilePicture;
-
 	const fullName = `${firstName} ${lastName}`;
-	const showFullName = fullName.length > 19 ? fullName.substring(0, 16) + '...' : fullName;
+	const showFullName = fullName.length > 17 ? fullName.substring(0, 16) + '...' : fullName;
+
+	console.log(JSON.parse(localStorage.getItem('loggedUser')));
 
     return (
         <Paper className={classes.root} elevation={10}>
@@ -95,7 +77,7 @@ export default function Menu() {
                     <ListItemAvatar>
                         <Avatar
                             alt="user"
-                            src={avatar[avatarString]}
+                            src={Default}
                             className={classes.large}
                         />
                     </ListItemAvatar>

@@ -10,7 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        margin: 0,
+      margin: 0,
     },
     text: {
         maxHeight: 175,
@@ -63,18 +63,18 @@ export default function Journal(props) {
                     {' #' + entry + ' - ' + daysOfTheWeek[weekDay] + ', ' + day + ' ' + months[monthIndex]}
                 </span>
             </h2>
-            <p className={classes.text} style={{ fontSize: '1.4rem' }}>{description}</p>
-            <br /><br />
+            <p className={classes.text} style={{fontSize: '1.4rem'}}>{description}</p>
+            <br/><br/>
             <FormControlLabel className={classes.buttonIcon}
-                control={<Checkbox icon={<StarBorderIcon style={{ color: "#ffb295" }} />} checkedIcon={<StarIcon style={{ color: "#ffb295" }} />} />}
-            />
+                control={<Checkbox icon={<StarBorderIcon style={{ color: "#ffb295" }} />} checkedIcon={<StarIcon style={{ color: "#ffb295" }}/>}  />}
+             />
             <IconButton>
-                <EditIcon style={{ color: "rgb(76, 137, 233)" }} />
+                <EditIcon style={{ color: "rgb(76, 137, 233)" }}/>
             </IconButton>
             <IconButton>
-                <HighlightOffIcon onClick={deleteData} style={{ color: "rgb(208, 20, 20)" }} />
+                <HighlightOffIcon style={{ color: "rgb(208, 20, 20)" }}/>
             </IconButton>
-            <hr className={'hrGrey'} />
+            <hr className={'hrGrey'}/>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -119,3 +120,12 @@ export default function Premium() {
 		</Paper>
 	);
 }
+=======
+import {Paper, Grid} from '@material-ui/core';
+import {makeStyles, withStyles} from "@material-ui/core/styles";
+
+export default function Premium() {
+    // const classes = useStyle();
+     return (null)
+}
+>>>>>>> 76088c93f9ff42bcb77a86afd68ad14f852c97f0

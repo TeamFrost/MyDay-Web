@@ -9,13 +9,13 @@ import Menu from '../components/Menu';
 export default function JournalPage() {
 
     return (
-        <div className="App" style={{display: 'flex', flexWrap: 'wrap', width: '100%'}}>
-        <Menu/>
-        <Journal/>
-        <ToDoList/>
-        <Box style={{ width: '100%'}}>
-            <Copyright />
-        </Box> 
-    </div>
+        <div className="App" style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
+            <Menu />
+            <Journal />
+            <ToDoList />
+            <Box style={{ width: '100%' }}>
+                <Copyright />
+            </Box>
+        </div>
     );
 }

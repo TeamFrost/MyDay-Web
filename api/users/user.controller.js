@@ -31,7 +31,7 @@ const getbyId = (req, res, next) => {
         .catch(err => next(err))
 }
 
-const register = (req, res, next) => {//de modificat?
+const register = (req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     return userService.register(req.body)
@@ -39,9 +39,25 @@ const register = (req, res, next) => {//de modificat?
         .catch(err => next(err));
 }
 
-router.post('/authenticate', authenticate);     // public route
-router.get('/', authorize(role.Admin), getAll); // admin only
-router.get('/:id', authorize(), getbyId);       // authenticated users
-router.post('/register', register);             // public route
+const updateUserAvatar = (req, res, next) => {
+
+    userService.updateUserAvatar(req.params)
+        .then(res.sendStatus(204))
+        .catch(err => next(err));
+}
+
+const updateName = (req, res, next) => {
+
+    userService.updateName(req.params)
+        .then(res.sendStatus(204))
+        .catch(err => next(err));
+}
+
+router.post('/authenticate', authenticate);                          // public route
+router.get('/', authorize(role.Admin), getAll);                      // admin only
+router.get('/:id', authorize(), getbyId);                            // authenticated users
+router.post('/register', register);                                  // public route
+router.post('/avatar/:id/:avatar', updateUserAvatar);               
+router.post('/:id/:FirstName/:LastName', updateName);                  
 
 module.exports = router;

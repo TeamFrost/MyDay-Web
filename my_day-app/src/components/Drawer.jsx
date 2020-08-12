@@ -62,8 +62,8 @@ export default function PermanentDrawerLeft() {
                                     {index % 2 === 0 ? (
                                         <InboxIcon />
                                     ) : (
-                                        <MailIcon />
-                                    )}
+                                            <MailIcon />
+                                        )}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>

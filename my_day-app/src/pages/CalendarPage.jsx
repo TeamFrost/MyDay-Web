@@ -10,7 +10,7 @@ export default function CalendarPage() {
         <div className="App" style={{display: 'flex', flexWrap: 'wrap'}}>
             <Menu/>
             <Calendar />
-            <Box mt={5}>
+            <Box style={{ width: '100%', marginTop: 20 }}>
                 <Copyright />
             </Box> 
         </div>

@@ -17,6 +17,7 @@ conn.connect(function (err) {
 });
 
 require('./routes/getJournalData')(app);
+require('./routes/getCalendarData')(app);
 require('./routes/getToDoData')(app);
 require('./routes/updateToDo')(app);
 

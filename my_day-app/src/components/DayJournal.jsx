@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Journal(props) {
     const classes = useStyles();
-    const { entry, description, date } = props;
+    const { id, entry, description, date, updateJournal } = props;
     const postDate = date.replace('T', ' ').replace('.000Z', '').split(/[- :]/);
     postDate[1]--;
     const dateObject = new Date(...postDate);
@@ -35,12 +35,32 @@ export default function Journal(props) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+    const deleteData = async () => {
+        const currentUser = JSON.parse(localStorage.getItem('loggedUser'));
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + currentUser.token,
+                'Content-Type': 'application/json'
+            }
+        }
+        await fetch(`http://localhost:3300/journal/deleteData/${id}`, requestOptions)
+            .then(res => {
+                console.log(res);
+                props.updateJournal();
+            })
+            .catch(err => {
+                console.log(err);
+                props.updateJournal();
+            })
+    }
+
     return (
         <div className={classes.root}>
             <h2 className={classes.text}>
-                <span style={{color: '#969798'}}>Entry</span>
-                <span style={{color: '#508FF4'}}>
-                    { ' #' + entry + ' - ' + daysOfTheWeek[weekDay] + ', ' + day + ' ' + months[monthIndex] }
+                <span style={{ color: '#969798' }}>Entry</span>
+                <span style={{ color: '#508FF4' }}>
+                    {' #' + entry + ' - ' + daysOfTheWeek[weekDay] + ', ' + day + ' ' + months[monthIndex]}
                 </span>
             </h2>
             <p className={classes.text} style={{fontSize: '1.4rem'}}>{description}</p>
